@@ -1,2 +1,5 @@
 # hello-world
-This is only for demo
+This is Adarsh Raj
+Persunig B.tech (stream - Electronics and Communication Engineering) from Oriental Institute Of Science & Technology, Bhopal.
+Skill have accuired - HTML5, CSS3.................
+Skills having now learning - C, Java, JavaScript.......................
