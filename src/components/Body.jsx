@@ -1,8 +1,11 @@
 import Recommended from "./Recommended";
-import { API_URL } from "../common/common";
-import { useState } from "react";
-
+import useOnlineStatus from "../customHooks/useOnlineStatus";
+import Offline from "./Offline";
 const Body = () => {
+  const onlineStatus = useOnlineStatus()
+  if(onlineStatus === false){
+    return <Offline/>
+  }
   return (
     <>
       <Recommended />

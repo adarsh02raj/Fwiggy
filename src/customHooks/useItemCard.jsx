@@ -13,4 +13,4 @@ const useItemCard = (menuData) => {
       }, [menuData]);
     return itemCard;
 }
-export default useItemCard;
+export default useItemCard; 

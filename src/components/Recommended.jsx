@@ -3,10 +3,15 @@ import { API_URL } from "../common/common";
 import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../customHooks/useOnlineStatus";
 
 export let resList = [];
 
 const Recommended = () => {
+  const onlineStatus = useOnlineStatus();
+  if(onlineStatus === false){
+    return (<div>You are offline</div>)
+  }
   const [resData, setResData] = useState([]);
   const fetchData = async () => {
     try{
