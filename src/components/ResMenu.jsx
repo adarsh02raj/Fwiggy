@@ -1,32 +1,16 @@
 import { useEffect, useState } from "react";
-import { MENU_API_URL } from "../common/common";
 import MenuItems from "./MenuItems";
 import Shimmer from "./Shimmer";
 import starLogo from "../../assets/star-svgrepo-com.svg";
 import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../customHooks/useRestaurantMenu";
+import useItemCard from "../customHooks/useItemCard";
 
 const ResMenu = () => {
   const { resId } = useParams();
-  const [menuData, setMenuData] = useState(null);
-  const [itemCards, setItemCards] = useState([]);
-  //function for fetch menu data
-  const fetchMenuData = async () => {
-    const data = await fetch(MENU_API_URL + resId);
-    const dataJson = await data.json();
-    setMenuData(dataJson?.data || {});
-  };
-  //useEffect
-  useEffect(() => {
-    fetchMenuData();
-  }, []);
-  useEffect(() => {
-    if (menuData) {
-      const cards = menuData?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-      if (cards && Array.isArray(cards.itemCards))
-        setItemCards(cards.itemCards);
-    }
-  }, [menuData]);
-  console.log(menuData?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards);
+  const menuData = useRestaurantMenu(resId);
+  const itemCards = useItemCard(menuData);
+  console.log('itemCard',itemCards);
   const {
     name,
     cuisines,

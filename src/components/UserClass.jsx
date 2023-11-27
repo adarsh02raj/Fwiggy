@@ -1,32 +1,34 @@
 import React from "react";
 
-class UserClass extends React.Component{
-    constructor(props){
-        super(props);
-        console.log('Child cc');
-        this.state = {
-            count: 0,
-            count2: 2
-        }
-    }
-    componentDidMount(){
-        console.log("Child component did mount");
-    }
-    render(){
-        console.log('Child Render Called');
-        const {name, location, social} = this.props;
-        return(
-            <div className="userClass">
-                <h1>Name: {name}</h1>
-                <h2>Address: {location}</h2>
-                <h4>Social: {social}</h4>
-                <button onClick={()=>{
-                    this.setState({count : this.state.count+1})
-                }}>Count: {this.state.count}</button>
-                <p>{this.state.count2}</p>
-            </div>
-        )
-    }
+class UserClass extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log("Child cc");
+    this.state = {
+      userInfo: {
+        name: "Dummy",
+        location: "Default",
+      },
+    };
+  }
+  async componentDidMount() {
+    const data = await fetch("https://api.github.com/users/adarsh02raj");
+    const dataJson = await data.json();
+    this.setState({
+      userInfo: dataJson,
+    });
+    console.log(dataJson);
+  }
+  render() {
+    const { name, location, avatar_url } = this.state.userInfo;
+    return (
+      <div className="userClass">
+        <img src={avatar_url} alt="dummyPicture" />
+        <h1>Name: {name}</h1>
+        <h2>Address: {location}</h2>
+      </div>
+    );
+  }
 }
 
 export default UserClass;

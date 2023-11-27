@@ -1,5 +1,5 @@
 import ResCard from "./ResCard";
-import { API_URL } from "../common/common";
+import { API_URL } from "../common/common";     
 import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -8,14 +8,20 @@ export let resList = [];
 
 const Recommended = () => {
   const [resData, setResData] = useState([]);
-  const [listOfresturant, setListOfResturant] = useState([]);
   const fetchData = async () => {
+    try{
     const data = await fetch(API_URL);
+    if (!data.ok) {
+      throw new Error('Network response was not ok');
+    }
     const dataJson = await data.json();
     setResData(
       dataJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants || []
     );
+    }catch(error){
+      console.log("Error:", error)
+    }
   };
   useState(() => {
     fetchData();
