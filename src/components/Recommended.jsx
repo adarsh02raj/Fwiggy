@@ -1,9 +1,9 @@
-import ResCard from "./ResCard";
-import { API_URL } from "../common/common";     
+import ResCard from "./ResCard";   
 import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../customHooks/useOnlineStatus";
+import useRecommandedRes from "../customHooks/useRecommandedRes";
 
 export let resList = [];
 
@@ -12,25 +12,7 @@ const Recommended = () => {
   if(onlineStatus === false){
     return (<div>You are offline</div>)
   }
-  const [resData, setResData] = useState([]);
-  const fetchData = async () => {
-    try{
-    const data = await fetch(API_URL);
-    if (!data.ok) {
-      throw new Error('Network response was not ok');
-    }
-    const dataJson = await data.json();
-    setResData(
-      dataJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants || []
-    );
-    }catch(error){
-      console.log("Error:", error)
-    }
-  };
-  useState(() => {
-    fetchData();
-  }, []);
+  const resData = useRecommandedRes();
   resList = resData;
   return resData.length === 0 ? (
     <Shimmer />

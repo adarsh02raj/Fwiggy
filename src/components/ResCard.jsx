@@ -1,5 +1,5 @@
 import { imgURLBanner } from "../common/common";
-import starLogo from "../../assets/star-svgrepo-com.svg";
+// import starLogo from "/assets/star-svgrepo-com.svg";
 
 const ResCard = ({ props }) => {
   const { name, cloudinaryImageId, avgRating, sla, cuisines, areaName } =
@@ -12,7 +12,7 @@ const ResCard = ({ props }) => {
   };
   const truncatedCuisines = truncateText(cuisines.join(", "), 35);
   const truncatedName = truncateText(name, 27);
-  console.log({ props });
+  // console.log({ props });
   return (
     <div className="res-card">
       <div className="card">
