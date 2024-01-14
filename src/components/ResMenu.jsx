@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import MenuItems from "./MenuItems";
-import Shimmer from "./Shimmer";
+// import Shimmer from "./Shimmer";
 import starLogo from "../../assets/star-svgrepo-com.svg";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../customHooks/useRestaurantMenu";
 import ResCategories from "./ResCategories";
+import Shimmer2 from "./Shimmer2";
 
 //Accordian Body
 //Accordian Header
@@ -29,7 +30,7 @@ const ResMenu = () => {
     costForTwoMessage,
   } = menuData?.cards[0]?.card?.card?.info || {};
   return menuData === null ? (
-    <Shimmer />
+    <Shimmer2 />
   ) : (
     <div className="text-center">
       <h1 className="font-bold my-5 text-2xl">{name}</h1>
