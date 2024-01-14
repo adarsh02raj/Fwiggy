@@ -13,22 +13,23 @@ const MenuItems = ({ props }) => {
   const minusCart = () => {
     setCount((prevCount) => prevCount - 1);
   };
+
   return (
-    <div className="menu-items">
+    <div className="menu-items flex justify-between my-10">
       <div className="left-menu-items">
       {isVeg === 1 ? (
         <img src={veg} alt="veg" />
       ) : (
         <img src={nonVeg} alt="nonVeg" />
       )}
-      <h4 className="item-name">{name}</h4>
+      <h4 className="item-name font-semibold">{name}</h4>
       <p>
-        <strong>₹ {price / 100 || defaultPrice / 100}</strong>
+        <span className="font-medium">₹ {price / 100 || defaultPrice / 100}</span>
       </p>
-      <div className="item-details">{description}</div>
+      <div className="item-detail">{description}</div>
       </div>
       <div className="right-menu-items">
-        <img className="order-img" src={imgURLBanner + imageId} alt="menu-image" />
+        <div className="max-w-[124px] max-h-[124px]"><img className="order-img w-full h-full" src={imgURLBanner + imageId} alt="menu-image" /></div>
         <div className="addButton">
           <div className="btnPlus" onClick={minusCart}>{count === 0 ? '' : '-'}</div>
           <div className="btnText" onClick={addToCart}>{count === 0 ? 'Add' : count}</div>

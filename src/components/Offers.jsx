@@ -1,33 +1,53 @@
-import React from "react";
-import UserClass from "./UserClass";
+const Offers = ()=>{
+    return(
+        <div>
+            <h1>Offers</h1>
+            <p>This is Lazy Loading...</p>
+        </div>
+    )
+}
+
+
+
+export default Offers; 
+
+
+
+
+
+// import React from "react";
+// import UserClass from "./UserClass";
 
 // const Offers = ()=>{
 //     return(
-//         <div className="offersComponent">
-//             <h1>Offers</h1>
-//             <UserClass name={'Adarsh'} location={'Muzaffarpur'} social={'@adarsh02raj'}/>
+//         // <div className="offersComponent">
+//         //     <h1>Offers</h1>
+//         //     <UserClass name={'Adarsh'} location={'Muzaffarpur'} social={'@adarsh02raj'}/>
+//         // </div>
+//         <div className="Offers">
+//             <h1>lorem lorem location location location location</h1>
 //         </div>       
 //     )
 // }
 
 
-class Offers extends React.Component{
-    constructor(){
-        super();
-        // console.log('Parent constructor');
-    }
-    componentDidMount(){
-        // console.log("Parent component did mount");
-    }
-    render(){
-        // console.log('Parent Render called');
+// // class Offers extends React.Component{
+// //     constructor(){
+// //         super();
+// //         // console.log('Parent constructor');
+// //     }
+// //     componentDidMount(){
+// //         // console.log("Parent component did mount");
+// //     }
+// //     render(){
+// //         // console.log('Parent Render called');
 
-        return(
-            <div className="offersComponent">
-            <UserClass name={'Adarsh'} location={'Muzaffarpur'} social={'@adarsh02raj'}/>
-            </div>
-        )
-    }
-}
+// //         return(
+// //             <div className="offersComponent">
+// //             <UserClass name={'Adarsh'} location={'Muzaffarpur'} social={'@adarsh02raj'}/>
+// //             </div>
+// //         )
+// //     }
+// // }
 
-export default Offers;
+// export default Offers;

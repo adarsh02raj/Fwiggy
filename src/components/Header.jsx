@@ -6,49 +6,49 @@ import { BiSolidOffer } from "react-icons/bi";
 import { IoHelpBuoyOutline } from "react-icons/io5";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
-import "../App.css";
+import '../../src/index.css'
 
 const Header = () => {
   return (
     <>
-      <div className="header">
+      <div className="flex justify-between items-center">
         <div className="left">
           <Link
             to={"/"}
             className="linkHome"
           >
-            <img src={FwiggyLogo} alt="logo" />
+            <img className="h-11" src={FwiggyLogo} alt="logo" />
           </Link>
         </div>
-        <div className="right">
-          <ul>
-            <li>
-              <Link className="parent-search" to="/search">
-                <FaSearch className="fa-nav-icon" />
+        <div className="right p-4">
+          <ul className="flex p-1 align-middle">
+            <li className="mr-6">
+              <Link className="flex items-center" to="/search">
+                <FaSearch className="fa-nav-icon mr-1" />
                 Search
               </Link>
             </li>
-            <li>
-              <Link className="c-link" to={'/Offers'}>
-                <BiSolidOffer className="fa-nav-icon" />
+            <li className="mr-6">
+              <Link className="c-link flex items-center" to={'./Offers'}>
+                <BiSolidOffer className="fa-nav-icon mr-1" />
                 Offer
               </Link>
             </li>
-            <li>
-              <Link className="c-link">
-                <IoHelpBuoyOutline className="fa-nav-icon" />
+            <li className="mr-6">
+              <Link className="c-link flex items-center">
+                <IoHelpBuoyOutline className="fa-nav-icon mr-1" />
                 Help
               </Link>
             </li>
-            <li>
-              <Link className="c-link">
-                <CgProfile className="fa-nav-icon" />
+            <li className="mr-6">
+              <Link className="c-link flex items-center">
+                <CgProfile className="fa-nav-icon mr-1" />
                 Sign In
               </Link>
             </li>
-            <li>
-              <Link className="c-link" to={'/Cart'}>
-                <FiShoppingCart className="fa-nav-icon" />
+            <li className="mr-6">
+              <Link className="c-link flex items-center" to={'/Cart'}>
+                <FiShoppingCart className="fa-nav-icon mr-1" />
                 Cart
               </Link>
             </li>

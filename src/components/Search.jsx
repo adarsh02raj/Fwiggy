@@ -19,10 +19,11 @@ const Search = () => {
     handleSearch(getText);
   }, [getText]);
   return (
-    <div className="searchComponent">
-      <div className="search-box">
+    <div className="w-[100vw] flex justify-center">
+    <div className="searchComponent flex flex-col">
+      <div className="search-box flex justify-between items-center w-[70dvw] my-5 border-solid border-2 border-black p-2">
         <input
-          className="search-input"
+          className="search-input w-11/12 outline-none"
           type="text"
           placeholder="Search for restaurants..."
           value={getText}
@@ -30,7 +31,7 @@ const Search = () => {
         />
         <FaSearch />
       </div>
-      <div className="resultRestaurant">
+      <div className="resultRestaurant w-[70dvw]">
         {filterList.map((res) => {
           return (
             <Link
@@ -43,6 +44,7 @@ const Search = () => {
           );
         })}
       </div>
+    </div>
     </div>
   );
 };

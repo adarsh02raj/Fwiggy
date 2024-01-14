@@ -1,13 +1,21 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import "/src/App.css";
+// import "/src/App.css";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import ResMenu from "./components/ResMenu";
 import Search from "./components/Search";
 import Cart from "./components/Cart";
-import Offers from "./components/Offers";
+
+
+//Lazy Loading
+//Code Splitting
+//Dynamic Budling
+//Chunking
+//On Demand Loading
+
+const Offers = lazy(()=> import("./components/Offers"))
 
 const AppLayout = () => {
   return (
@@ -40,7 +48,9 @@ const appRouter = createBrowserRouter([
       },
       {
         path: '/offers',
-        element: <Offers />
+        element: <Suspense fallback={<h1>Loading...</h1>}>
+          <Offers />
+        </Suspense>
       },
     ],
     errorElement: <Error />,

@@ -4,16 +4,16 @@ import { API_URL } from "../common/common";
 const useRecommandedRes = () => {
     const [resData, setResData] = useState([]);
     const fetchData = async () => {
-        try{
+      try{
         const data = await fetch(API_URL);
         if (!data.ok) {
           throw new Error('Network response was not ok');
         }
         const dataJson = await data.json();
         setResData(
-          dataJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants || []
-        );
+          dataJson?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants || []
+          );
         }catch(error){
           console.log("Error:", error)
         }
@@ -21,7 +21,8 @@ const useRecommandedRes = () => {
       useEffect(()=>{
         fetchData();
       },[])
-    return resData;
+console.log(resData);
+      return resData;
 }
 
 export default useRecommandedRes;

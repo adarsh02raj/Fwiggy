@@ -1,0 +1,2 @@
+var e=globalThis.parcelRequiree960;(0,e.register)("cK4Cj",function(r,i){Object.defineProperty(r.exports,"__esModule",{value:!0,configurable:!0}),Object.defineProperty(r.exports,"default",{get:()=>a,set:void 0,enumerable:!0,configurable:!0});var s=e("ayMG0"),a=()=>(0,s.jsxs)("div",{children:[(0,s.jsx)("h1",{children:"Offers"}),(0,s.jsx)("p",{children:"This is Lazy Loading..."})]})});
+//# sourceMappingURL=Offers.67c31858.js.map

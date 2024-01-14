@@ -1,4 +1,4 @@
-import ResCard from "./ResCard";   
+import ResCard, {WithLabelCard} from "./ResCard";   
 import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -13,11 +13,13 @@ const Recommended = () => {
     return (<div>You are offline</div>)
   }
   const resData = useRecommandedRes();
+  const RestaurantWithLabel = WithLabelCard(ResCard)
   resList = resData;
+  
   return resData.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="recommended">
+    <div className="recommended flex flex-wrap justify-center">
       {resData.map((res) => {
         return (
           <Link
@@ -25,7 +27,10 @@ const Recommended = () => {
             key={res?.info?.id}
             to={"/restaurant/" + res?.info?.id}
           >
-            <ResCard props={res} />
+            {
+              res.info.avgRating===4.4 ?(<RestaurantWithLabel props={res}/> ): (<ResCard props={res}/>)
+            }
+            
           </Link>
         );
       })}
