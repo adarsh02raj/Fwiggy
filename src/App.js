@@ -8,16 +8,16 @@ import ResMenu from "./components/ResMenu";
 import Search from "./components/Search";
 import Cart from "./components/Cart";
 
-
 //Lazy Loading
 //Code Splitting
 //Dynamic Budling
 //Chunking
 //On Demand Loading
 
-const Offers = lazy(()=> import("./components/Offers"))
+const Offers = lazy(() => import("./components/Offers"));
 
 const AppLayout = () => {
+
   return (
     <>
       <Header />
@@ -35,22 +35,24 @@ const appRouter = createBrowserRouter([
         element: <Body />,
       },
       {
-        path: '/restaurant/:resId',
-        element: <ResMenu/>
+        path: "/restaurant/:resId",
+        element: <ResMenu />,
       },
       {
-        path: '/search',
-        element: <Search />
+        path: "/search",
+        element: <Search />,
       },
       {
-        path: '/cart',
-        element: <Cart />
+        path: "/cart",
+        element: <Cart />,
       },
       {
-        path: '/offers',
-        element: <Suspense fallback={<h1>Loading...</h1>}>
-          <Offers />
-        </Suspense>
+        path: "/offers",
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Offers />
+          </Suspense>
+        ),
       },
     ],
     errorElement: <Error />,
@@ -58,4 +60,4 @@ const appRouter = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={appRouter}/>);
+root.render(<RouterProvider router={appRouter} />);
